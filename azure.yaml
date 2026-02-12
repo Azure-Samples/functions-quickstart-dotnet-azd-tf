@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: starter-dotnet-func-terraform
+metadata:
+  template: functions-quickstart-dotnet-azd-terraform@1.1.0
+services:
+  api:
+    project: ./http/
+    language: dotnet
+    host: function
+infra:
+  provider: terraform
