@@ -32,6 +32,7 @@ This codespace is already configured with the required tools to complete this tu
 ## Prerequisites
 
 + [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (or [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0))
++ [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite) (for local storage emulation)
 + [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local?pivots=programming-language-csharp#install-the-azure-functions-core-tools)
 + [Terraform](https://developer.hashicorp.com/terraform/install) (>= 1.1.7)
 + To use Visual Studio to run and debug locally:
@@ -61,24 +62,20 @@ You can initialize a project from this `azd` template in one of these ways:
     ```
 
     You can also clone the repository from your own fork in GitHub.
+## Local settings
 
-## Prepare your local environment
+The `local.settings.json` file is included in the `http` folder with default values for local development. This file is excluded from deployment by `.funcignore`.
 
-Navigate to the `http` app folder and create a file in that folder named _local.settings.json_ that contains this JSON data:
-
-```json
-{
-    "IsEncrypted": false,
-    "Values": {
-        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
-    }
-}
-```
 
 ## Run your app from the terminal
 
-1. From the `http` folder, run this command to start the Functions host locally:
+1. Start Azurite for local storage emulation. In a separate terminal, run:
+
+    ```shell
+    azurite
+    ```
+
+1. From the `http` folder, run this command to start the Functions host:
 
     ```shell
     func start
