@@ -6,7 +6,7 @@ description: "Create a .NET isolated Azure Functions app with an HTTP trigger an
 
 projects:
   - name: Azure Functions HTTP Trigger (Terraform) QuickStart (.NET)
-    shortName: http-trigger-csharp-terraform
+    shortName: functions-quickstart-dotnet-http-terraform
     root: .
     stack: dotnet
     language: "C#"
